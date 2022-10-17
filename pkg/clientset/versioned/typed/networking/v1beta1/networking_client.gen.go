@@ -30,6 +30,7 @@ type NetworkingV1beta1Interface interface {
 	GatewaysGetter
 	ProxyConfigsGetter
 	ServiceEntriesGetter
+	ServiceNameMappingsGetter
 	SidecarsGetter
 	VirtualServicesGetter
 	WorkloadEntriesGetter
@@ -55,6 +56,10 @@ func (c *NetworkingV1beta1Client) ProxyConfigs(namespace string) ProxyConfigInte
 
 func (c *NetworkingV1beta1Client) ServiceEntries(namespace string) ServiceEntryInterface {
 	return newServiceEntries(c, namespace)
+}
+
+func (c *NetworkingV1beta1Client) ServiceNameMappings(namespace string) ServiceNameMappingInterface {
+	return newServiceNameMappings(c, namespace)
 }
 
 func (c *NetworkingV1beta1Client) Sidecars(namespace string) SidecarInterface {

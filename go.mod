@@ -1,6 +1,10 @@
-module istio.io/client-go
+module github.com/mark4z/operator-client-go
 
 go 1.17
+
+replace istio.io/api => github.com/mark4z/operator-api v0.0.0-20221017074935-81dbc40cee8d
+
+replace istio.io/client-go => ./
 
 require (
 	istio.io/api v0.0.0-20221004225839-607aeaab2827

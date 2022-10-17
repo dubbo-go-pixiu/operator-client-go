@@ -30,6 +30,7 @@ type NetworkingV1alpha3Interface interface {
 	EnvoyFiltersGetter
 	GatewaysGetter
 	ServiceEntriesGetter
+	ServiceNameMappingsGetter
 	SidecarsGetter
 	VirtualServicesGetter
 	WorkloadEntriesGetter
@@ -55,6 +56,10 @@ func (c *NetworkingV1alpha3Client) Gateways(namespace string) GatewayInterface {
 
 func (c *NetworkingV1alpha3Client) ServiceEntries(namespace string) ServiceEntryInterface {
 	return newServiceEntries(c, namespace)
+}
+
+func (c *NetworkingV1alpha3Client) ServiceNameMappings(namespace string) ServiceNameMappingInterface {
+	return newServiceNameMappings(c, namespace)
 }
 
 func (c *NetworkingV1alpha3Client) Sidecars(namespace string) SidecarInterface {

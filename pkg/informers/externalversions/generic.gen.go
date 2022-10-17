@@ -67,6 +67,8 @@ func (f *sharedInformerFactory) ForResource(resource schema.GroupVersionResource
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Networking().V1alpha3().Gateways().Informer()}, nil
 	case v1alpha3.SchemeGroupVersion.WithResource("serviceentries"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Networking().V1alpha3().ServiceEntries().Informer()}, nil
+	case v1alpha3.SchemeGroupVersion.WithResource("servicenamemappings"):
+		return &genericInformer{resource: resource.GroupResource(), informer: f.Networking().V1alpha3().ServiceNameMappings().Informer()}, nil
 	case v1alpha3.SchemeGroupVersion.WithResource("sidecars"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Networking().V1alpha3().Sidecars().Informer()}, nil
 	case v1alpha3.SchemeGroupVersion.WithResource("virtualservices"):
@@ -85,6 +87,8 @@ func (f *sharedInformerFactory) ForResource(resource schema.GroupVersionResource
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Networking().V1beta1().ProxyConfigs().Informer()}, nil
 	case v1beta1.SchemeGroupVersion.WithResource("serviceentries"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Networking().V1beta1().ServiceEntries().Informer()}, nil
+	case v1beta1.SchemeGroupVersion.WithResource("servicenamemappings"):
+		return &genericInformer{resource: resource.GroupResource(), informer: f.Networking().V1beta1().ServiceNameMappings().Informer()}, nil
 	case v1beta1.SchemeGroupVersion.WithResource("sidecars"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Networking().V1beta1().Sidecars().Informer()}, nil
 	case v1beta1.SchemeGroupVersion.WithResource("virtualservices"):

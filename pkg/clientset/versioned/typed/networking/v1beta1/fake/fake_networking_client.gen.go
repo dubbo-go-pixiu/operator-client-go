@@ -42,6 +42,10 @@ func (c *FakeNetworkingV1beta1) ServiceEntries(namespace string) v1beta1.Service
 	return &FakeServiceEntries{c, namespace}
 }
 
+func (c *FakeNetworkingV1beta1) ServiceNameMappings(namespace string) v1beta1.ServiceNameMappingInterface {
+	return &FakeServiceNameMappings{c, namespace}
+}
+
 func (c *FakeNetworkingV1beta1) Sidecars(namespace string) v1beta1.SidecarInterface {
 	return &FakeSidecars{c, namespace}
 }

@@ -48,6 +48,14 @@ type ServiceEntryListerExpansion interface{}
 // ServiceEntryNamespaceLister.
 type ServiceEntryNamespaceListerExpansion interface{}
 
+// ServiceNameMappingListerExpansion allows custom methods to be added to
+// ServiceNameMappingLister.
+type ServiceNameMappingListerExpansion interface{}
+
+// ServiceNameMappingNamespaceListerExpansion allows custom methods to be added to
+// ServiceNameMappingNamespaceLister.
+type ServiceNameMappingNamespaceListerExpansion interface{}
+
 // SidecarListerExpansion allows custom methods to be added to
 // SidecarLister.
 type SidecarListerExpansion interface{}
