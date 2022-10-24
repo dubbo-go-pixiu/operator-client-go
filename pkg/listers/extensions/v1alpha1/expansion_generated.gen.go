@@ -16,6 +16,14 @@
 
 package v1alpha1
 
+// ServiceNameMappingListerExpansion allows custom methods to be added to
+// ServiceNameMappingLister.
+type ServiceNameMappingListerExpansion interface{}
+
+// ServiceNameMappingNamespaceListerExpansion allows custom methods to be added to
+// ServiceNameMappingNamespaceLister.
+type ServiceNameMappingNamespaceListerExpansion interface{}
+
 // WasmPluginListerExpansion allows custom methods to be added to
 // WasmPluginLister.
 type WasmPluginListerExpansion interface{}

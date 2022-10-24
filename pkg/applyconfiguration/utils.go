@@ -37,6 +37,8 @@ import (
 func ForKind(kind schema.GroupVersionKind) interface{} {
 	switch kind {
 	// Group=extensions.istio.io, Version=v1alpha1
+	case v1alpha1.SchemeGroupVersion.WithKind("ServiceNameMapping"):
+		return &extensionsv1alpha1.ServiceNameMappingApplyConfiguration{}
 	case v1alpha1.SchemeGroupVersion.WithKind("WasmPlugin"):
 		return &extensionsv1alpha1.WasmPluginApplyConfiguration{}
 
@@ -59,8 +61,6 @@ func ForKind(kind schema.GroupVersionKind) interface{} {
 		return &networkingv1alpha3.GatewayApplyConfiguration{}
 	case v1alpha3.SchemeGroupVersion.WithKind("ServiceEntry"):
 		return &networkingv1alpha3.ServiceEntryApplyConfiguration{}
-	case v1alpha3.SchemeGroupVersion.WithKind("ServiceNameMapping"):
-		return &networkingv1alpha3.ServiceNameMappingApplyConfiguration{}
 	case v1alpha3.SchemeGroupVersion.WithKind("Sidecar"):
 		return &networkingv1alpha3.SidecarApplyConfiguration{}
 	case v1alpha3.SchemeGroupVersion.WithKind("VirtualService"):
@@ -79,8 +79,6 @@ func ForKind(kind schema.GroupVersionKind) interface{} {
 		return &networkingv1beta1.ProxyConfigApplyConfiguration{}
 	case v1beta1.SchemeGroupVersion.WithKind("ServiceEntry"):
 		return &networkingv1beta1.ServiceEntryApplyConfiguration{}
-	case v1beta1.SchemeGroupVersion.WithKind("ServiceNameMapping"):
-		return &networkingv1beta1.ServiceNameMappingApplyConfiguration{}
 	case v1beta1.SchemeGroupVersion.WithKind("Sidecar"):
 		return &networkingv1beta1.SidecarApplyConfiguration{}
 	case v1beta1.SchemeGroupVersion.WithKind("VirtualService"):

@@ -228,55 +228,6 @@ type ServiceEntryList struct {
 //
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
-// <!-- crd generation tags
-// +cue-gen:ServiceNameMapping:groupName:networking.istio.io
-// +cue-gen:ServiceNameMapping:version:v1beta1
-// +cue-gen:ServiceNameMapping:annotations:helm.sh/resource-policy=keep
-// +cue-gen:ServiceNameMapping:labels:app=istio-pilot,chart=istio,heritage=Tiller,release=istio
-// +cue-gen:ServiceNameMapping:subresource:status
-// +cue-gen:ServiceNameMapping:scope:Namespaced
-// +cue-gen:ServiceNameMapping:resource:categories=istio-io,networking-istio-io,shortNames=snp,plural=servicenamemappings
-// +cue-gen:ServiceNameMapping:printerColumn:name=Age,type=date,JSONPath=.metadata.creationTimestamp,description="CreationTimestamp is a timestamp
-// representing the server time when this object was created. It is not guaranteed to be set in happens-before order across separate operations.
-// Clients may not set this value. It is represented in RFC3339 form and is in UTC.
-// Populated by the system. Read-only. Null for lists. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata"
-// +cue-gen:ServiceNameMapping:preserveUnknownFields:false
-// -->
-//
-// <!-- go code generation tags
-// +kubetype-gen
-// +kubetype-gen:groupVersion=networking.istio.io/v1beta1
-// +genclient
-// +k8s:deepcopy-gen=true
-// -->
-// <!-- istio code generation tags
-// +istio.io/sync-from:networking/v1alpha3/service_name_mapping.proto
-// -->
-type ServiceNameMapping struct {
-	v1.TypeMeta `json:",inline"`
-	// +optional
-	v1.ObjectMeta `json:"metadata,omitempty" protobuf:"bytes,1,opt,name=metadata"`
-
-	// Spec defines the implementation of this definition.
-	// +optional
-	Spec networkingv1beta1.ServiceNameMapping `json:"spec,omitempty" protobuf:"bytes,2,opt,name=spec"`
-
-	Status v1alpha1.IstioStatus `json:"status"`
-}
-
-// +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
-
-// ServiceNameMappingList is a collection of ServiceNameMappings.
-type ServiceNameMappingList struct {
-	v1.TypeMeta `json:",inline"`
-	// +optional
-	v1.ListMeta `json:"metadata,omitempty" protobuf:"bytes,1,opt,name=metadata"`
-	Items       []*ServiceNameMapping `json:"items" protobuf:"bytes,2,rep,name=items"`
-}
-
-//
-// +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
-
 // `Sidecar` describes the configuration of the sidecar proxy that mediates
 // inbound and outbound communication of the workload instance to which it is
 // attached.

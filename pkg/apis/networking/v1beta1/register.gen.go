@@ -49,8 +49,6 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&ProxyConfigList{},
 		&ServiceEntry{},
 		&ServiceEntryList{},
-		&ServiceNameMapping{},
-		&ServiceNameMappingList{},
 		&Sidecar{},
 		&SidecarList{},
 		&VirtualService{},

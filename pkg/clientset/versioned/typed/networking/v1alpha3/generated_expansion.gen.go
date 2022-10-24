@@ -24,8 +24,6 @@ type GatewayExpansion interface{}
 
 type ServiceEntryExpansion interface{}
 
-type ServiceNameMappingExpansion interface{}
-
 type SidecarExpansion interface{}
 
 type VirtualServiceExpansion interface{}

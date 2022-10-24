@@ -30,8 +30,6 @@ type Interface interface {
 	ProxyConfigs() ProxyConfigInformer
 	// ServiceEntries returns a ServiceEntryInformer.
 	ServiceEntries() ServiceEntryInformer
-	// ServiceNameMappings returns a ServiceNameMappingInformer.
-	ServiceNameMappings() ServiceNameMappingInformer
 	// Sidecars returns a SidecarInformer.
 	Sidecars() SidecarInformer
 	// VirtualServices returns a VirtualServiceInformer.
@@ -71,11 +69,6 @@ func (v *version) ProxyConfigs() ProxyConfigInformer {
 // ServiceEntries returns a ServiceEntryInformer.
 func (v *version) ServiceEntries() ServiceEntryInformer {
 	return &serviceEntryInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
-}
-
-// ServiceNameMappings returns a ServiceNameMappingInformer.
-func (v *version) ServiceNameMappings() ServiceNameMappingInformer {
-	return &serviceNameMappingInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // Sidecars returns a SidecarInformer.
