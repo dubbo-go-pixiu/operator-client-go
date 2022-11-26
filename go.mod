@@ -2,7 +2,7 @@ module github.com/mark4z/operator-client-go
 
 go 1.17
 
-replace istio.io/api => github.com/mark4z/operator-api v0.0.0-20221024141850-66e222ce203a
+replace istio.io/api => github.com/dubbo-go-pixiu/operator-api v0.0.0-20221126054223-dda83ac319f4
 
 replace istio.io/client-go => ./
 
