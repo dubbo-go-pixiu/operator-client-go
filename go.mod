@@ -1,9 +1,14 @@
-module istio.io/client-go
+module github.com/mark4z/operator-client-go
 
 go 1.17
 
+replace istio.io/api => github.com/dubbo-go-pixiu/operator-api v0.0.0-20221126054223-dda83ac319f4
+
+replace istio.io/client-go => ./
+
 require (
 	istio.io/api v0.0.0-20221004225839-607aeaab2827
+	istio.io/client-go v0.0.0-20221004230640-0f4eee98e01b
 	k8s.io/apimachinery v0.23.5
 	k8s.io/client-go v0.23.5
 	sigs.k8s.io/structured-merge-diff/v4 v4.2.1
