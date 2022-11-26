@@ -1,4 +1,4 @@
-module github.com/mark4z/operator-client-go
+module github.com/dubbo-go-pixiu/operator-client-go
 
 go 1.17
 
