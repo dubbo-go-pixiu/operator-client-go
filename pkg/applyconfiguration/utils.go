@@ -37,6 +37,8 @@ import (
 func ForKind(kind schema.GroupVersionKind) interface{} {
 	switch kind {
 	// Group=extensions.istio.io, Version=v1alpha1
+	case v1alpha1.SchemeGroupVersion.WithKind("ServiceMetadata"):
+		return &extensionsv1alpha1.ServiceMetadataApplyConfiguration{}
 	case v1alpha1.SchemeGroupVersion.WithKind("ServiceNameMapping"):
 		return &extensionsv1alpha1.ServiceNameMappingApplyConfiguration{}
 	case v1alpha1.SchemeGroupVersion.WithKind("WasmPlugin"):

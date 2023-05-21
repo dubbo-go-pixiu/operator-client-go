@@ -26,6 +26,53 @@ import (
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
 // <!-- crd generation tags
+// +cue-gen:ServiceMetadata:groupName:extensions.istio.io
+// +cue-gen:ServiceMetadata:version:v1alpha1
+// +cue-gen:ServiceMetadata:storageVersion
+// +cue-gen:ServiceMetadata:annotations:helm.sh/resource-policy=keep
+// +cue-gen:ServiceMetadata:labels:app=istio-pilot,chart=istio,heritage=Tiller,release=istio
+// +cue-gen:ServiceMetadata:subresource:status
+// +cue-gen:ServiceMetadata:scope:Namespaced
+// +cue-gen:ServiceMetadata:resource:categories=istio-io,extensions-istio-io,shortNames=sm,plural=servicemetadatas
+// +cue-gen:ServiceMetadata:printerColumn:name=Age,type=date,JSONPath=.metadata.creationTimestamp,description="CreationTimestamp is a timestamp
+// representing the server time when this object was created. It is not guaranteed to be set in happens-before order across separate operations.
+// Clients may not set this value. It is represented in RFC3339 form and is in UTC.
+// Populated by the system. Read-only. Null for lists. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata"
+// +cue-gen:ServiceMetadata:preserveUnknownFields:false
+// -->
+//
+// <!-- go code generation tags
+// +kubetype-gen
+// +kubetype-gen:groupVersion=extensions.istio.io/v1alpha1
+// +genclient
+// +k8s:deepcopy-gen=true
+// -->
+type ServiceMetadata struct {
+	v1.TypeMeta `json:",inline"`
+	// +optional
+	v1.ObjectMeta `json:"metadata,omitempty" protobuf:"bytes,1,opt,name=metadata"`
+
+	// Spec defines the implementation of this definition.
+	// +optional
+	Spec extensionsv1alpha1.ServiceMetadata `json:"spec,omitempty" protobuf:"bytes,2,opt,name=spec"`
+
+	Status metav1alpha1.IstioStatus `json:"status"`
+}
+
+// +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
+
+// ServiceMetadataList is a collection of ServiceMetadatas.
+type ServiceMetadataList struct {
+	v1.TypeMeta `json:",inline"`
+	// +optional
+	v1.ListMeta `json:"metadata,omitempty" protobuf:"bytes,1,opt,name=metadata"`
+	Items       []*ServiceMetadata `json:"items" protobuf:"bytes,2,rep,name=items"`
+}
+
+//
+// +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
+
+// <!-- crd generation tags
 // +cue-gen:ServiceNameMapping:groupName:extensions.istio.io
 // +cue-gen:ServiceNameMapping:version:v1alpha1
 // +cue-gen:ServiceNameMapping:storageVersion

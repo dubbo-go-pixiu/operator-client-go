@@ -26,6 +26,7 @@ import (
 
 type ExtensionsV1alpha1Interface interface {
 	RESTClient() rest.Interface
+	ServiceMetadatasGetter
 	ServiceNameMappingsGetter
 	WasmPluginsGetter
 }
@@ -33,6 +34,10 @@ type ExtensionsV1alpha1Interface interface {
 // ExtensionsV1alpha1Client is used to interact with features provided by the extensions.istio.io group.
 type ExtensionsV1alpha1Client struct {
 	restClient rest.Interface
+}
+
+func (c *ExtensionsV1alpha1Client) ServiceMetadatas(namespace string) ServiceMetadataInterface {
+	return newServiceMetadatas(c, namespace)
 }
 
 func (c *ExtensionsV1alpha1Client) ServiceNameMappings(namespace string) ServiceNameMappingInterface {

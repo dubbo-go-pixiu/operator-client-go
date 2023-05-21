@@ -26,6 +26,10 @@ type FakeExtensionsV1alpha1 struct {
 	*testing.Fake
 }
 
+func (c *FakeExtensionsV1alpha1) ServiceMetadatas(namespace string) v1alpha1.ServiceMetadataInterface {
+	return &FakeServiceMetadatas{c, namespace}
+}
+
 func (c *FakeExtensionsV1alpha1) ServiceNameMappings(namespace string) v1alpha1.ServiceNameMappingInterface {
 	return &FakeServiceNameMappings{c, namespace}
 }

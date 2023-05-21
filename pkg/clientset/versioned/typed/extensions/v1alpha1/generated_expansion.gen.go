@@ -16,6 +16,8 @@
 
 package v1alpha1
 
+type ServiceMetadataExpansion interface{}
+
 type ServiceNameMappingExpansion interface{}
 
 type WasmPluginExpansion interface{}

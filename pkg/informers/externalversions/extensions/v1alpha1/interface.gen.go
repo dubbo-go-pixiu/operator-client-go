@@ -22,6 +22,8 @@ import (
 
 // Interface provides access to all the informers in this group version.
 type Interface interface {
+	// ServiceMetadatas returns a ServiceMetadataInformer.
+	ServiceMetadatas() ServiceMetadataInformer
 	// ServiceNameMappings returns a ServiceNameMappingInformer.
 	ServiceNameMappings() ServiceNameMappingInformer
 	// WasmPlugins returns a WasmPluginInformer.
@@ -37,6 +39,11 @@ type version struct {
 // New returns a new Interface.
 func New(f internalinterfaces.SharedInformerFactory, namespace string, tweakListOptions internalinterfaces.TweakListOptionsFunc) Interface {
 	return &version{factory: f, namespace: namespace, tweakListOptions: tweakListOptions}
+}
+
+// ServiceMetadatas returns a ServiceMetadataInformer.
+func (v *version) ServiceMetadatas() ServiceMetadataInformer {
+	return &serviceMetadataInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // ServiceNameMappings returns a ServiceNameMappingInformer.

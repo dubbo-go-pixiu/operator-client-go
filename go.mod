@@ -2,7 +2,7 @@ module github.com/dubbo-go-pixiu/operator-client-go
 
 go 1.17
 
-replace istio.io/api => github.com/dubbo-go-pixiu/operator-api v0.0.0-20221126054223-dda83ac319f4
+replace istio.io/api => github.com/dubbo-go-pixiu/operator-api v0.0.0-20230521024122-de7669e54430
 
 replace istio.io/client-go => ./
 

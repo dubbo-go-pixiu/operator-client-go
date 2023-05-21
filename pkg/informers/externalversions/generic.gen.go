@@ -55,6 +55,8 @@ func (f *genericInformer) Lister() cache.GenericLister {
 func (f *sharedInformerFactory) ForResource(resource schema.GroupVersionResource) (GenericInformer, error) {
 	switch resource {
 	// Group=extensions.istio.io, Version=v1alpha1
+	case v1alpha1.SchemeGroupVersion.WithResource("servicemetadatas"):
+		return &genericInformer{resource: resource.GroupResource(), informer: f.Extensions().V1alpha1().ServiceMetadatas().Informer()}, nil
 	case v1alpha1.SchemeGroupVersion.WithResource("servicenamemappings"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Extensions().V1alpha1().ServiceNameMappings().Informer()}, nil
 	case v1alpha1.SchemeGroupVersion.WithResource("wasmplugins"):
