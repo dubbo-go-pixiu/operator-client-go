@@ -16,6 +16,14 @@
 
 package v1alpha1
 
+// ServiceMetadataListerExpansion allows custom methods to be added to
+// ServiceMetadataLister.
+type ServiceMetadataListerExpansion interface{}
+
+// ServiceMetadataNamespaceListerExpansion allows custom methods to be added to
+// ServiceMetadataNamespaceLister.
+type ServiceMetadataNamespaceListerExpansion interface{}
+
 // ServiceNameMappingListerExpansion allows custom methods to be added to
 // ServiceNameMappingLister.
 type ServiceNameMappingListerExpansion interface{}
